@@ -5,6 +5,9 @@
        xmlns:util="http://www.springframework.org/schema/util"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
+
+
+
     <!--这是springmvc扫描注解 放在-serlvet中-->
     <context:annotation-config/>
     <!-- 自动扫描web包 ,将带有注解的类 纳入spring容器管理 -->
@@ -73,6 +76,8 @@
     <bean id="jt" class="org.springframework.jdbc.core.JdbcTemplate">
         <property name="dataSource" ref="dataSource" />
     </bean>
+
+
 
 
 
