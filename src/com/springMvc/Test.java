@@ -1,10 +1,8 @@
 package com.springMvc;
 
 
-import com.spring.BeanA;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 public class Test {
 
