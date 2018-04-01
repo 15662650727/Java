@@ -11,9 +11,9 @@
 
     <context:property-placeholder location="classpath:*.properties" />
 
-    <!--<bean name="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">-->
-        <!--<property name="dataSource" ref="dataSource"></property>-->
-    <!--</bean>-->
+    <bean name="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+       <property name="dataSource" ref="dataSource"></property>
+    </bean>
 
 
 
@@ -53,6 +53,19 @@
         <property name="removeAbandonedTimeout" value="1800" />
         <!-- 关闭abanded连接时输出错误日志 -->
         <property name="logAbandoned" value="false" />
+    </bean>
+
+    <!--配置sqlSessionfactory-->
+    <bean id="SqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!-- 数据库连接池 -->
+        <property name="dataSource" ref="dataSource" />
+        <!-- 加载mybatis的全局配置文件 -->
+        <property name="configLocation" value="classpath:SqlMapConfig.xml" />
+    </bean>
+
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.ssm.mapper" />
+        <property name="sqlSessionFactoryBeanName" value="SqlSessionFactory"></property>
     </bean>
 
     <!-- 配置JdbcTemplate -->
