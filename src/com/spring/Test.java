@@ -14,6 +14,7 @@ public class Test {
         ApplicationContext ap = new ClassPathXmlApplicationContext("com/spring/applicationContext.xml");
         BeanA beanA = (BeanA) ap.getBean("beanA");
         beanA.initBeanA();
+        System.out.println(123);
     }
 
     @org.junit.Test
