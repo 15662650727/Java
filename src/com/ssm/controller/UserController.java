@@ -17,12 +17,12 @@ public class UserController {
 
     @RequestMapping("/{id}")
     @ResponseBody
-    public String testValueC(@PathVariable int id){
+    public UserBean testValueC(@PathVariable int id){
         System.out.println(id); //http://localhost:8080/a/b/123
-        UserBean UserBean = userService.getUserByID(id);
-        System.out.println(UserBean.toString());
+        UserBean userBean = userService.getUserByID(id);
+        System.out.println(userBean.toString());
 
-        return "成功";
+        return userBean;
     }
 
 }
