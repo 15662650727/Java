@@ -17,6 +17,7 @@ public class Hello {
     @RequestMapping("/b")
     public void testValue(){
         System.out.println(123); //http://localhost:8080/a/b
+        System.out.println(456);
         System.out.println(string);
     }
 
