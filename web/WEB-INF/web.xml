@@ -40,5 +40,7 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
-
+    <listener>
+        <listener-class>com.listener.listenerDemo</listener-class>
+    </listener>
 </web-app>
