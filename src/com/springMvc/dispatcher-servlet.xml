@@ -53,4 +53,10 @@
         &lt;!&ndash; 关闭 abanded 连接时输出错误日志 &ndash;&gt;
         <property name="logAbandoned" value="${logAbandoned}"/>&ndash;&gt;
     </bean>-->
+    <bean id="he" class="com.springMvc.Hello" >
+        <property name="Hf" value="777"/>
+    </bean>
+
+    <bean id="he2" class="com.springMvc.HelloF">
+</bean>
 </beans>

@@ -20,4 +20,13 @@ public class springJdbcTest {
 
     }
 
+    @org.junit.Test
+    public void test2(){
+        //测试数据库和SpringJdbc可以通过
+        ApplicationContext ap = new ClassPathXmlApplicationContext("com/springJdbc/dispatcher-servlet.xml");
+        JdbcTemplate jdbcTemplate = (JdbcTemplate) ap.getBean("jt");
+        System.out.println(jdbcTemplate.getDataSource());
+
+    }
+
 }
