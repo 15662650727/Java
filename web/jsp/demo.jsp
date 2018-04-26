@@ -1,14 +1,19 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Administrator
-  Date: 2018-4-19
-  Time: 11:30
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <%
+        String path = request.getContextPath();
+        String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+    %>
     <title>1234</title>
+    <script type="text/javascript">
+        //rtsp登录用户名
+        var path = '<%=path%>';
+        //rtsp登录密码
+        var basePath = '<%=basePath%>';
+        console.log(path);
+        console.log(basePath);
+    </script>
 </head>
 <body>
 1234
