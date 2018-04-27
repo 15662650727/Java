@@ -19,7 +19,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
-        <url-pattern>/</url-pattern>
+        <url-pattern>*.do</url-pattern>  <!--拦截*.do js文件不会被拦截       拦截/ 静态文件也会被拦截-->
     </servlet-mapping>
 
     <filter>
