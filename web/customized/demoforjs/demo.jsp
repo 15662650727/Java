@@ -1,13 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ include file="../../common/js.jsp" %>
 <html>
 <head>
-    <%
-        String path = request.getContextPath(); //获取项目名和基础路径
-        String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-    %>
     <title>1234</title>
-    <script type="text/javascript" src="demo.js"></script>
-    <script type="text/javascript" src="demo.js"></script>
     <script type="text/javascript">
         //rtsp登录用户名
         var path = '<%=path%>';
@@ -20,12 +15,16 @@
             console.log(document);
             console.log(button1);
         }
+        $(function () {
+            console.log(999);
+        });
     </script>
 </head>
 <body>
 <div>
     <input id="input1"></input>
     <button id="button1" onclick="bu1cilik()">确定</button>
+    <h1>sessionID:<%=session.getId()%></h1>
     <%--第一种绑定方式,dom中绑定事件--%>
 </div>
 </body>
