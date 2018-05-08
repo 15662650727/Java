@@ -19,7 +19,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
-        <url-pattern>*.do</url-pattern>  <!--拦截*.do js文件不会被拦截       拦截/ 静态文件也会被拦截-->
+        <url-pattern>/</url-pattern>  <!--拦截*.do js文件不会被拦截(可以访问到)       拦截/ 静态文件也会被拦截-->
     </servlet-mapping>
 
     <filter>
@@ -43,4 +43,17 @@
     <listener>
         <listener-class>com.listener.listenerDemo</listener-class>
     </listener>
+    <!--dispatcher配置/ 也可以访问到下面资源 -->
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.jpg</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.js</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.css</url-pattern>
+    </servlet-mapping>
 </web-app>

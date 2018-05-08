@@ -7,9 +7,23 @@ public class Test extends Thread{
 
     public static String age;
     public static void main(String[] args) {
+        System.out.print(1);
+        System.out.print(1);
+        System.out.print(1);
+        System.out.print(1);
+
         new Thread("线程1"){
             @Override
             public void run(){
+                System.out.print(1);
+                System.out.print(1);
+                System.out.print(1);
+                System.out.print(1);
+                System.out.print(1);
+                System.out.print(1);
+                System.out.print(1);
+                System.out.print(1);
+                System.out.print(1);
                 System.out.print(1);
             }
         }.start();
