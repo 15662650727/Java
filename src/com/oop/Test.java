@@ -1,6 +1,7 @@
 package com.oop;
 
 
+import java.io.File;
 import java.util.*;
 
 public class Test extends Thread{
@@ -107,6 +108,63 @@ public class Test extends Thread{
 
 
 
+    @org.junit.Test
+    public void test2(){
+        String str1 = "1";
+        String str2 = "2";
+        String str3 = "3";
+        List list = new ArrayList();
+        list.add(str1);
+        list.add(str2);
+        list.add(str3);
 
+        for (int i = 0; i <list.size() ; i++) {
+            String o = (String)list.get(0);
+            o = "244";
+        }
+
+        System.out.println(list);
+    }
+
+
+    @org.junit.Test
+    public void test4(){
+        List<String> allFile = getAllFile("D:\\epcp\\upload\\PlateNumber", false);
+        System.out.println(allFile);
+
+    }
+
+    @org.junit.Test
+    public void test5(){
+        List<String> allFile = getAllFile("D:\\epcp\\upload\\PlateNumber", false);
+        System.out.println(allFile);
+
+    }
+    /**
+     * @Autor Zhang Yu
+     * @Description 获取所有文件
+     * @Date 2018-5-8 10:12
+     * @Param [directoryPath, isAddDirectory]
+     * @Return java.util.List<java.lang.String>
+     **/
+    public static List<String> getAllFile(String directoryPath, boolean isAddDirectory) {
+        List<String> list = new ArrayList<String>();
+        File baseFile = new File(directoryPath);
+        if (baseFile.isFile() || !baseFile.exists()) {
+            return list;
+        }
+        File[] files = baseFile.listFiles();
+        for (File file : files) {
+            if (file.isDirectory()) {
+                if (isAddDirectory) {
+                    list.add(file.getAbsolutePath());
+                }
+                list.addAll(getAllFile(file.getAbsolutePath(), isAddDirectory));
+            } else {
+                list.add(file.getAbsolutePath());
+            }
+        }
+        return list;
+    }
 
 }

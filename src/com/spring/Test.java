@@ -45,6 +45,24 @@ public class Test {
         //集合是链表 序号永远从0开始
     }
 
+    @org.junit.Test
+    public void test3(){
+        //创建一个list 向list中添加字符串3个.然后循环remove掉
+        List<String> strList = new ArrayList<>();
+        strList.add("0");
+        strList.add("1");
+        strList.add("2");
+        strList.add("3");
+        strList.clear();
+        System.out.println(strList);
+        strList.add("0");
+        strList.add("1");
+        strList.add("2");
+        strList.add("3");
+        System.out.println(strList);
+        //集合是链表 序号永远从0开始
+    }
+
 
 
 

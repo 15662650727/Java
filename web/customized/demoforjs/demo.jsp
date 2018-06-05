@@ -19,6 +19,11 @@
     <button id="button1" onclick="bu1cilik()">确定</button>
     <h1>sessionID:<%=session.getId()%></h1>
     <%--第一种绑定方式,dom中绑定事件--%>
+
+    <form action="../../a/pic/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file"/>
+        <input type="submit" value="提交"/>
+    </form>
 </div>
 </body>
 </html>

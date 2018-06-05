@@ -7,7 +7,11 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+
+import javax.servlet.http.HttpServletRequest;
 
 
 @Controller
@@ -44,5 +48,11 @@ public class Hello extends HelloF {
         return c;
     }
 
+    @RequestMapping("/pic/upload")
+    @ResponseBody
+    public void pictureUpload(HttpServletRequest request, @RequestParam MultipartFile file, String code, String name) {
+        String dirpath = request.getSession().getServletContext().getRealPath("phone");  //获取tomcat 上下文环境路径
+        String fileName = file.getOriginalFilename(); //获取原始文件名
+    }
 
 }

@@ -1,5 +1,9 @@
 package com.Thread;
 
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+
 /**
  * @ClassName Main
  * @Description TODO
@@ -12,8 +16,17 @@ public class Main {
 
 
     public static void main(String[] args) {
-        ThreadDemo td = new ThreadDemo("xiancheng");
-        td.start();
+        PictureAlarmTask task = new PictureAlarmTask();
+        Thread t = new Thread(task, "PicTure");
+        t.start();
+        System.out.println(Thread.currentThread().getName());
 
+    }
+
+    public static class PictureAlarmTask implements Runnable {
+        @Override
+        public void run() {
+                System.out.println(Thread.currentThread().getName());
+        }
     }
 }

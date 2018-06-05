@@ -19,25 +19,25 @@ public class ThreadDemo implements Runnable{
     }
 
     public void run() {
-        System.out.println(this);
-        for(int i = 10; i > 0; i--) {
-            System.out.println("Thread: " + threadName + ", " + i);
-            // Let the thread sleep for a while.
-            try {
-                Thread.sleep(300);
-
-                synchronized(this) {
-                    while(suspended) {
-                        wait();
-                    }
-                }
-
-            } catch (InterruptedException e) {
-                System.out.println("Thread " +  threadName + " interrupted.");
-                e.printStackTrace();
-            }
-            System.out.println("Thread " +  threadName + " exiting.");
-        }
+        System.out.println(threadName);
+//        for(int i = 10; i > 0; i--) {
+//            System.out.println("Thread: " + threadName + ", " + i);
+//            // Let the thread sleep for a while.
+//            try {
+//                Thread.sleep(300);
+//
+//                synchronized(this) {
+//                    while(suspended) {
+//                        wait();
+//                    }
+//                }
+//
+//            } catch (InterruptedException e) {
+//                System.out.println("Thread " +  threadName + " interrupted.");
+//                e.printStackTrace();
+//            }
+//            System.out.println("Thread " +  threadName + " exiting.");
+//        }
     }
 
     /**

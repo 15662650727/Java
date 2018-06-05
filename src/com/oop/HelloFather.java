@@ -1,6 +1,6 @@
 package com.oop;
 
-public class HelloFather {
+public class HelloFather extends GroudFather{
 
     private String strf;
 
