@@ -50,7 +50,7 @@ public class Hello extends HelloF {
 
     @RequestMapping("/pic/upload")
     @ResponseBody
-    public void pictureUpload(HttpServletRequest request, @RequestParam MultipartFile file, String code, String name) {
+    public void pictureUpload(@RequestParam MultipartFile file, HttpServletRequest request) {
         String dirpath = request.getSession().getServletContext().getRealPath("phone");  //获取tomcat 上下文环境路径
         String fileName = file.getOriginalFilename(); //获取原始文件名
     }
