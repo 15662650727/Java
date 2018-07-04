@@ -5,6 +5,8 @@
     <title>JS</title>
     <meta charset="utf-8">
     <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" type="text/css" href="../../common/webuploader/webuploader.css">
+    <script type="text/javascript" src="../../common/webuploader/webuploader.js"></script>
     <script type="text/javascript">
         //rtsp登录用户名
         var path = '<%=path%>';
@@ -24,6 +26,14 @@
         <input type="file" name="file" />
         <input type="submit" value="提交"/>
     </form>
+
+
+    <div id="uploader-demo">
+        <!--用来存放item-->
+        <div id="fileList" class="uploader-list"></div>
+        <div id="filePicker">选择图片</div>
+    </div>
+
 </div>
 </body>
 </html>

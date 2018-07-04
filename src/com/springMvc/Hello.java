@@ -10,8 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.File;
+import java.util.Map;
 
 
 @Controller
@@ -52,7 +55,18 @@ public class Hello extends HelloF {
     @ResponseBody
     public void pictureUpload(@RequestParam MultipartFile file, HttpServletRequest request) {
         String dirpath = request.getSession().getServletContext().getRealPath("phone");  //获取tomcat 上下文环境路径
-        String fileName = file.getOriginalFilename(); //获取原始文件名
+        System.out.println(request.getParameter("user"));
+        MultipartHttpServletRequest mul=(MultipartHttpServletRequest)request;
+        Map<String,MultipartFile> files=mul.getFileMap();
+        String fileName;
+        File targetFile;
+        String targetFileName=null;
+        String uploadUrl=request.getSession().getServletContext().getRealPath("/")+"upload";
+        File dir=new File(uploadUrl);
+        System.out.println(dir);
+        if(!dir.exists()) {
+            dir.mkdirs();
+        }
     }
 
 }
