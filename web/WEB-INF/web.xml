@@ -8,42 +8,27 @@
         <param-name>contextConfigLocation</param-name>
         <param-value>/WEB-INF/applicationContext.xml</param-value>
     </context-param>
+    <!--ContextLoaderListener的作用就是启动Web容器时，自动装配ApplicationContext.xml的配置信息。-->
+    <!--因为它实现了ServletContextListener这个接口，在web.xml配置这个监听器，启动容器时，就会默认执行它实现的方法。-->
+    <!--若不打开此监听,则无法装配spring上下文-->
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
-    <!--配置DispatcherServlet-->
+    <!--配置DispatcherServlet ,会自动读取下面servlet-name-servlet.xml中的配置 本项目即dispatcher-servlet-->
+    <!--这是springmvc配置文件-->
     <servlet>
         <servlet-name>dispatcher</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
+
+
+    <!--  1  *.do   js文件不会被拦截(可以访问到)     2  / 静态文件也会被拦截(访问不到) 需要设置本页 $('#lan') 让这些文件可以被访问到-->
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
-        <url-pattern>/</url-pattern>  <!--拦截*.do js文件不会被拦截(可以访问到)       拦截/ 静态文件也会被拦截-->
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
-
-    <filter>
-        <filter-name>encodingFilter</filter-name>
-        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
-        <init-param>
-            <param-name>encoding</param-name>
-            <param-value>UTF-8</param-value>
-        </init-param>
-        <init-param>
-            <param-name>forceEncoding</param-name>
-            <param-value>true</param-value>
-        </init-param>
-    </filter>
-    <!-- encoding filter for jsp page -->
-    <filter-mapping>
-        <filter-name>encodingFilter</filter-name>
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>
-
-    <listener>
-        <listener-class>com.listener.listenerDemo</listener-class>
-    </listener>
-    <!--dispatcher配置/ 也可以访问到下面资源 -->
+    <!--dispatcher配置/ 也可以访问到下面资源  id="lan" -->
     <servlet-mapping>
         <servlet-name>default</servlet-name>
         <url-pattern>*.jpg</url-pattern>
@@ -56,4 +41,30 @@
         <servlet-name>default</servlet-name>
         <url-pattern>*.css</url-pattern>
     </servlet-mapping>
+
+    <!--web项目设置上即可,讲请求编码置为utf-8-->
+    <filter>
+        <filter-name>encodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <init-param>
+            <param-name>forceEncoding</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+    <!-- 所有请求均被拦截 -->
+    <filter-mapping>
+        <filter-name>encodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+
+    <!--监听器demo-->
+    <listener>
+        <listener-class>com.listener.listenerDemo</listener-class>
+    </listener>
+
 </web-app>
