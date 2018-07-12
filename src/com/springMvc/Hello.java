@@ -1,6 +1,7 @@
 package com.springMvc;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -27,12 +28,14 @@ public class Hello extends HelloF {
 
     private int b = 0;
     private static int c = 0;
-
+    @Autowired
+    private HelloF helloF;
 
     @RequestMapping("/b")
     public void testValue() {
-        System.out.println("12".hashCode()); //http://localhost:8080/a/b
+        System.out.println("12".hashCode()); //http://localhost:8083/a/b
         System.out.println(string);
+        System.out.println(helloF);
         System.out.println(b++);
         int[] d = new int[1];
         try {
@@ -46,7 +49,7 @@ public class Hello extends HelloF {
     @RequestMapping("/b/{c}")
     @ResponseBody
     public String testValueC(@PathVariable String c) {
-        System.out.println(123); //http://localhost:8080/a/b/123
+        System.out.println(123); //http://localhost:8083/a/b/123
         System.out.println(c);
         return c;
     }

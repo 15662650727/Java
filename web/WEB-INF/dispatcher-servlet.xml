@@ -10,15 +10,16 @@
 
     <!--这是springmvc扫描注解 放在-serlvet中-->
     <context:annotation-config/>
-    <!-- 自动扫描web包 ,将带有注解的类 纳入spring容器管理 -->
+    <!-- 自动扫描web包 ,将带有注解的类 纳入spring容器管理  不带注解-->
     <context:component-scan base-package="com"></context:component-scan>
 
+
+    <!--扫描WEB-INF下所有properties文件 在本页使用方法下面连接池-->
     <context:property-placeholder location="classpath:*.properties" />
 
     <bean name="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
        <property name="dataSource" ref="dataSource"></property>
     </bean>
-
 
 
     <!-- 数据源配置, 使用 Druid 数据库连接池 -->

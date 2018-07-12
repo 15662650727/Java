@@ -2,7 +2,10 @@
     String path = request.getContextPath();
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path;
 %>
-
+<script>
+    var path = '<%=path%>';
+    var basePath = '<%=basePath%>';
+</script>
 <link href="<%=basePath%>/common/bootstrap-3.3.7/dist/css/bootstrap.css" rel="stylesheet">
 
 <script type="text/javascript" src="<%=basePath%>/common/jQuery/jquery-3.3.1.min.js"></script>
