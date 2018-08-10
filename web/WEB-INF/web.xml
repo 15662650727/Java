@@ -61,6 +61,21 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
+    <filter>
+        <filter-name>signOnFilter</filter-name>
+        <filter-class>com.listener.FileterDemo</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>signOnFilter</filter-name>
+        <url-pattern>*.jsp</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>signOnFilter</filter-name>
+        <url-pattern>/</url-pattern>
+    </filter-mapping>
+
+
 
     <!--监听器demo-->
     <listener>

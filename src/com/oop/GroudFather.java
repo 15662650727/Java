@@ -10,9 +10,7 @@ package com.oop;
  **/
 public class GroudFather {
 
-    static {
-        System.out.println("静态块");
-    }
+
     public GroudFather(){
         System.out.println("GroudFather构造");
     }
@@ -50,11 +48,11 @@ public class GroudFather {
 //    }
 //}
 //
-//执行结果
+//执行结果  new类顺序
 //        =====
 //        父类--静态代码块
-//        子类--静态代码块
+//        本类--静态代码块
 //        父类--非静态代码块
 //        父类--构造函数
-//        子类--非静态代码块
-//        子类--构造函数
+//        本类--非静态代码块
+//        本类--构造函数

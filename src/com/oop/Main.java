@@ -12,8 +12,10 @@ public class Main {
 
 
     public static void main(String[] args) {
-        GroudFather g = new Hello();
-         outH(g);
+        Hello.get();
+        System.out.println();
+
+
     }
 
 
