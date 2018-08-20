@@ -14,6 +14,11 @@ public class GroudFather {
     public GroudFather(){
         System.out.println("GroudFather构造");
     }
+
+    public void start(){
+        System.out.println("输出父类");
+    }
+
 }
 
 //

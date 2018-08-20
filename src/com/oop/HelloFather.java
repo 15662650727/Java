@@ -11,4 +11,8 @@ public class HelloFather extends GroudFather{
     public void setStrf(String strf) {
         this.strf = strf;
     }
+
+    public void start(){
+        System.out.println("输出子类");
+    }
 }

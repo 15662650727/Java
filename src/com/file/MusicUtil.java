@@ -1,4 +1,5 @@
 package com.file;
+
 import java.io.*;
 
 import org.jaudiotagger.audio.AudioFileIO;
@@ -41,11 +42,37 @@ public class MusicUtil {
     }
 
     public static void main(String[] args) throws TagException, ReadOnlyFileException, CannotReadException, InvalidAudioFrameException, IOException {
+        for (int i = 0; i <3 ; i++) {
+            new Thread("1") {
+                @Override
+                public  void run(){
+                    play("C:\\Users\\Administrator\\Desktop\\1.mp3");
 
-        String position = "\\C:\\Users\\Administrator\\Desktop\\1.mp3";
+                }
+            }.start();
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
 
-        getDuration(position);
-        play(position);
 
+    }
+
+
+    public static void openExc(String file) {
+
+
+
+
+
+
+
+        try {
+            Runtime.getRuntime().exec("D:\\QQ影音\\QQPlayer.exe " +file);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

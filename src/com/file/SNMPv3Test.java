@@ -48,7 +48,7 @@ public class SNMPv3Test {
         /** 创建链接参数**/
         UserTarget target = new UserTarget();
         target.setVersion(SnmpConstants.version3);
-        target.setAddress(new UdpAddress("192.168.0.10/161"));
+        target.setAddress(new UdpAddress("192.168.1.10/161"));
         target.setSecurityLevel(SecurityLevel.AUTH_PRIV);
         target.setSecurityName(new OctetString("admin"));
         target.setTimeout(3000);    //3s
@@ -56,45 +56,13 @@ public class SNMPv3Test {
 
         /** 链接ID**/
         OctetString contextEngineId = new OctetString("0002651100[02]");
-        //西北门开
+        //北机柜西门
         sendRequest(snmp, createSetDoor1(contextEngineId), target);
-//        int num = 0;
-//        while (num <= 5) {
-//            Thread.sleep(2000);
-            sendRequest(snmp, createSetDoor2(contextEngineId), target);
-//            num++;
-//        }
-      //  num = 0;
-//        while (num <= 5) {
-//            Thread.sleep(2000);
-//            sendRequest(snmp, createSetDoor1(contextEngineId), target);
-//            num++;
-//        }
-//		snmpWalk(snmp, target, contextEngineId);
+        //sendRequest(snmp, createSetDoor2(contextEngineId), target);
+		//snmpWalk(snmp, target, contextEngineId);
     }
 
-    private static PDU createGetPdu(OctetString contextEngineId) {
-        ScopedPDU pdu = new ScopedPDU();
-        pdu.setType(PDU.GET);
-//		pdu.setContextEngineID(contextEngineId);	//if not set, will be SNMP engine id
-        //pdu.setContextName(contextName);  //must be same as SNMP agent
 
-        pdu.add(new VariableBinding(new OID("1.3.6.1.2.1.11.1.0")));    //sysUpTime
-        pdu.add(new VariableBinding(new OID("1.3.6.1.2.1.1.5.0")));    //sysName
-        pdu.add(new VariableBinding(new OID("1.3.6.1.4.1.2011.6.178.1.1.21.1.1.7.20993")));
-        pdu.add(new VariableBinding(new OID("1.3.6.1.4.1.2011.6.178.1.1.21.1.1.7.20994")));//expect an no_such_instance error
-        pdu.add(new VariableBinding(new OID("1.3.6.1.4.1.2011.6.178.1.1.9.5.1.1.2.28161")));
-        return pdu;
-    }
-
-//    private static PDU createSetPdu(OctetString contextEngineId) {
-//        ScopedPDU pdu = new ScopedPDU();
-//        pdu.setType(PDU.SET);
-//        pdu.add(new VariableBinding(new OID("1.3.6.1.4.1.2011.6.178.1.1.21.1.1.15.20993"), new Integer32(1)));
-//        //pdu.add(new VariableBinding(new OID("1.3.6.1.4.1.2011.6.178.1.1.21.1.1.15.20994"), new Integer32(1)));
-//
-//        return pdu;
-//    }
 
     private static PDU createSetDoor1(OctetString contextEngineId) {
         ScopedPDU pdu = new ScopedPDU();

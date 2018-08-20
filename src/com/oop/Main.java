@@ -12,17 +12,16 @@ public class Main {
 
 
     public static void main(String[] args) {
-        Hello.get();
-        System.out.println();
+      //GroudFather a = new GroudFather();
+        HelloFather b = new HelloFather();
+        outH(b);
 
 
     }
 
 
-    public static void outH(GroudFather groudFather) {
-
-        System.out.println(groudFather.toString());
-
+    public static void outH(HelloFather g) {
+        g.start();
     }
 
 }
