@@ -29,10 +29,15 @@ public class DBConnectionPool {
 //                    DBConnectionPool.class.getClassLoader()
 //                            .getResourceAsStream("com/jdbc/db_mysql.properties"));
             /**获取属性文件中的值**/
-            String driverClassName = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-            String url = "jdbc:sqlserver://localhost:1433;DatabaseName=myserver";
-            String username = "sa";
-            String password = "123456";
+//            String driverClassName1 = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+//            String url1 = "jdbc:sqlserver://localhost:1433;DatabaseName=myserver";
+//            String username1 = "sa";
+//            String password1 = "123456";
+
+            String driverClassName = "oracle.jdbc.OracleDriver";
+            String url = "jdbc:oracle:thin:@192.168.1.16:1521:orcl";
+            String username = "epcp";
+            String password = "epcp";
 
             /**数据库连接池对象**/
             cpds = new ComboPooledDataSource();

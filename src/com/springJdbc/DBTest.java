@@ -2,10 +2,8 @@ package com.springJdbc;
 
 
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * Created by yuandl on 2016-12-16.
@@ -13,23 +11,25 @@ import java.util.Map;
 public class DBTest {
 
     public static void main(String[] args) {
-//        System.out.println("数据库的原数据");
-//        testQuery3();
-//        testInsert();
-//        System.out.println("执行插入后的数据");
-//        testQuery3();
-//        testUpdate();
-//        System.out.println("执行修改后的数据");
-//        testQuery3();
-//        testDelete();
-//        System.out.println("执行删除后的数据");
-//        testQuery3();
-//        System.out.println("带条件的查询1");
-//        testQuery2();
-//        System.out.println("带条件的查询2");
-//        testQuery1();
-        testAll1();
-//        testAll2();
+//       StringBuffer sb = new StringBuffer();
+//            sb.append(" select * from CZPDETAIL t where sheetid = '15711' ");
+//        try {
+//            List<Map<String, Object>> query = DBUtil.query(sb.toString());
+//            System.out.println(query);
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+        new DBTest().getPastTime(1);
+    }
+
+    public String getPastTime(int days){
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Calendar c = Calendar.getInstance();
+        c.setTime(new Date());
+        c.add(Calendar.DATE, - days);
+        Date d = c.getTime();
+        String day = format.format(d);
+        return day;
     }
 
 

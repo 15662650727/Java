@@ -20,17 +20,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-
-//            ThreadDemo t = new ThreadDemo("music","san","12");
-//            t.start();
-//        System.out.println(1234);
-
-        for (int i = 0; i <3 ; i++) {
-            ThreadDemo t = new ThreadDemo("robotStart");
-            t.start();
-        }
-
-
+        String a = "abc";
+        int b = a.indexOf("d");
+        System.out.println(b);
     }
 
 
