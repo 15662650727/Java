@@ -23,11 +23,14 @@
     </servlet>
 
 
-    <!--  1  *.do   js文件不会被拦截(可以访问到)     2  / 静态文件也会被拦截(访问不到) 需要设置本页 $('#lan') 让这些文件可以被访问到-->
+    <!--   <url-pattern>/</url-pattern> 中两种配置
+      1  *.do     js文件不会被拦截(可以访问到)
+      2  /        静态文件也会被拦截(访问不到) 需要设置本页 $('#lan') 让这些文件可以被访问到-->
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+
     <!--dispatcher配置/ 也可以访问到下面资源  id="lan" -->
     <servlet-mapping>
         <servlet-name>default</servlet-name>
@@ -42,7 +45,7 @@
         <url-pattern>*.css</url-pattern>
     </servlet-mapping>
 
-    <!--web项目设置上即可,讲请求编码置为utf-8-->
+    <!--web项目设置上即可,讲请求编码置为utf-8 保证进入controller的编码格式都为utf-8-->
     <filter>
         <filter-name>encodingFilter</filter-name>
         <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -60,12 +63,11 @@
         <filter-name>encodingFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-
+    <!-- 这三项会 拦截*.jsp  和/      并不是/1-->
     <filter>
         <filter-name>signOnFilter</filter-name>
         <filter-class>com.listener.FileterDemo</filter-class>
     </filter>
-
     <filter-mapping>
         <filter-name>signOnFilter</filter-name>
         <url-pattern>*.jsp</url-pattern>
@@ -77,7 +79,7 @@
 
 
 
-    <!--监听器demo-->
+    <!--监听器demo  监听会在项目启动和结束时候运行, 拦截器一般过程中运行-->
     <listener>
         <listener-class>com.listener.listenerDemo</listener-class>
     </listener>
